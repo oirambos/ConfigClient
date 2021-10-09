@@ -27,4 +27,11 @@ public class ConfigClientController {
 		int accountsNumber = employeeService.getNumberOfAccounts();
 	    return "The number of accounts for this department is: "+ accountsNumber;
 	}
+	
+	@RequestMapping("/evictcache")
+	public String evictCache() {
+		employeeService.deleteCache();
+		log.info("Cache deleted");
+		return "Cache deleted";
+	}
 }
